@@ -1,0 +1,706 @@
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Regera Recruit document",
+    "description": "API for Regera Recruit document",
+    "license": {
+      "name": "API license",
+      "url": "http://domain.com"
+    },
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http//localhost9999",
+      "description": "Server Test"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": [
+        
+      ]
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "Register",
+        "description": "Register with user information",
+        "operationId": "register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountCreationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "refresh-token",
+        "description": "get new access token from system",
+        "operationId": "refresh",
+        "parameters": [
+          {
+            "name": "refreshToken",
+            "in": "cookie",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseAuthenticationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "Logout",
+        "description": "Log out user from system",
+        "operationId": "logout",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogoutRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "Login",
+        "description": "Login with username and password",
+        "operationId": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseAuthenticationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/introspect": {
+      "post": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "Introspect",
+        "description": "Check valid JWT token ",
+        "operationId": "introspect",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IntrospectRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseIntrospectResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/check-otp": {
+      "post": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "Check OTP",
+        "description": "Check if OTP is valid ",
+        "operationId": "checkOTP",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OTPCheckRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/check-email-phone": {
+      "post": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "Check Email and Phone",
+        "description": "Check if email and phone number is valid for register ",
+        "operationId": "checkEmailPhone",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailAndPhoneCheckRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseEmailAndPhoneCheckResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/change-password": {
+      "post": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "Change Password",
+        "description": "Change Password after fill OTP ",
+        "operationId": "changePassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseString"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/send-otp/{key}": {
+      "get": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "Send OTP",
+        "description": "Send request to system to send OTP email ",
+        "operationId": "sendOTP",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseSendOTPResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/redis": {
+      "get": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "operationId": "testRedis",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/check-username/{username}": {
+      "get": {
+        "tags": [
+          "authentication-controller"
+        ],
+        "summary": "Check Username",
+        "description": "Check if username is valid for register ",
+        "operationId": "checkUsername",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIResponseBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccountCreationRequest": {
+        "required": [
+          "password",
+          "phoneNumber",
+          "role",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "candidate": {
+            "$ref": "#/components/schemas/CandidateCreationRequest"
+          },
+          "company": {
+            "$ref": "#/components/schemas/CompanyCreationRequest"
+          }
+        }
+      },
+      "CandidateCreationRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "address": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          }
+        }
+      },
+      "CompanyCreationRequest": {
+        "required": [
+          "address",
+          "companyName"
+        ],
+        "type": "object",
+        "properties": {
+          "companyName": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "img": {
+            "type": "string"
+          },
+          "workTime": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          }
+        }
+      },
+      "APIResponseVoid": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      },
+      "APIResponseAuthenticationResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/AuthenticationResponse"
+          }
+        }
+      },
+      "AuthenticationResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "LogoutRequest": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "AuthenticationRequest": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "IntrospectRequest": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "APIResponseIntrospectResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/IntrospectResponse"
+          }
+        }
+      },
+      "IntrospectResponse": {
+        "type": "object",
+        "properties": {
+          "valid": {
+            "type": "boolean"
+          }
+        }
+      },
+      "OTPCheckRequest": {
+        "required": [
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          }
+        }
+      },
+      "APIResponseObject": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      },
+      "EmailAndPhoneCheckRequest": {
+        "required": [
+          "email",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      },
+      "APIResponseEmailAndPhoneCheckResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/EmailAndPhoneCheckResponse"
+          }
+        }
+      },
+      "EmailAndPhoneCheckResponse": {
+        "type": "object",
+        "properties": {
+          "emailValid": {
+            "type": "boolean"
+          },
+          "phoneValid": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ChangePasswordRequest": {
+        "required": [
+          "newPassword",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          }
+        }
+      },
+      "APIResponseString": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string"
+          }
+        }
+      },
+      "APIResponseSendOTPResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SendOTPResponse"
+          }
+        }
+      },
+      "SendOTPResponse": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "isValid": {
+            "type": "boolean"
+          }
+        }
+      },
+      "APIResponseBoolean": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

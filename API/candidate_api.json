@@ -1,0 +1,573 @@
+
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Regera Recruit document",
+    "description": "API for Regera Recruit document",
+    "license": {
+      "name": "API license",
+      "url": "http://domain.com"
+    },
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9999",
+      "description": "Server Test"
+    }
+  ],
+  "paths": {
+    "/candidate/cv": {
+      "post": {
+        "tags": [
+          "candidate-controller"
+        ],
+        "summary": "Create Cv",
+        "description": "Create cv with CvCreationRequest",
+        "operationId": "createCv",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CvCreationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/candidate/apply-job": {
+      "post": {
+        "tags": [
+          "candidate-controller"
+        ],
+        "summary": "Apply job",
+        "description": "Apply job with apply request",
+        "operationId": "applyJob",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/candidate": {
+      "patch": {
+        "tags": [
+          "candidate-controller"
+        ],
+        "summary": "Update candidate info",
+        "description": "Update candidate information",
+        "operationId": "updateCandidateInfo",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CandidateUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/candidate/cv/{id}": {
+      "get": {
+        "tags": [
+          "candidate-controller"
+        ],
+        "summary": "Get Cv by Id",
+        "description": "Get cv by id",
+        "operationId": "getCvById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCvDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "candidate-controller"
+        ],
+        "summary": "Update Cv",
+        "description": "Update cv with CvUpdateRequest",
+        "operationId": "updateCv",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CvUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/candidate/info": {
+      "get": {
+        "tags": [
+          "candidate-controller"
+        ],
+        "summary": "Get Candidate Info",
+        "description": "Get candidate information",
+        "operationId": "getCandidateInfo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCandidateDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/candidate/cvs": {
+      "get": {
+        "tags": [
+          "candidate-controller"
+        ],
+        "summary": "Get CVs",
+        "description": "Get cvs by candidate",
+        "operationId": "getCvByCandidate",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListCvDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/candidate/check-apply-job": {
+      "get": {
+        "tags": [
+          "candidate-controller"
+        ],
+        "summary": "Check for apply job",
+        "description": "Check if cv has apply same job",
+        "operationId": "checkForApplyJob",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "cvId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CvCreationRequest": {
+        "required": [
+          "email",
+          "name",
+          "phone",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "address": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "exp": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "study": {
+            "type": "string"
+          },
+          "linkProject": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "img": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseVoid": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      },
+      "ApplyRequest": {
+        "required": [
+          "cvId",
+          "jobId"
+        ],
+        "type": "object",
+        "properties": {
+          "cvId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "jobId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "CandidateUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "address": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          }
+        }
+      },
+      "CvUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "address": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "exp": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "study": {
+            "type": "string"
+          },
+          "linkProject": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "img": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseCandidateDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CandidateDTO"
+          }
+        }
+      },
+      "CandidateDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "cvs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CvDTO"
+            }
+          }
+        }
+      },
+      "CvDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "exp": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "study": {
+            "type": "string"
+          },
+          "linkProject": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "img": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseListCvDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CvDTO"
+            }
+          }
+        }
+      },
+      "ApiResponseCvDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CvDTO"
+          }
+        }
+      },
+      "ApiResponseBoolean": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

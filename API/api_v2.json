@@ -1,0 +1,472 @@
+
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Regera Recruit document",
+    "description": "API for Regera Recruit document",
+    "license": {
+      "name": "API license",
+      "url": "http://domain.com"
+    },
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9999",
+      "description": "Server Test"
+    }
+  ],
+  "paths": {
+    "/public/tags": {
+      "get": {
+        "tags": [
+          "public-controller"
+        ],
+        "operationId": "getTags",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListTagDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/jobs": {
+      "get": {
+        "tags": [
+          "public-controller"
+        ],
+        "summary": "Get jobs by company",
+        "description": "Get jobs from user requirement",
+        "operationId": "getAllJobsByCompany",
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchs",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePageResponseJobDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/job/{id}": {
+      "get": {
+        "tags": [
+          "public-controller"
+        ],
+        "summary": "Get job info",
+        "description": "Get job info by id",
+        "operationId": "getJobById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseJobDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/company/{id}": {
+      "get": {
+        "tags": [
+          "public-controller"
+        ],
+        "summary": "Get company info",
+        "description": "Get company info by id",
+        "operationId": "getCompanyById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCompanyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/cities": {
+      "get": {
+        "tags": [
+          "public-controller"
+        ],
+        "operationId": "getCities",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListCityDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiResponseListTagDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TagDTO"
+            }
+          }
+        }
+      },
+      "TagDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponsePageResponseJobDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResponseJobDTO"
+          }
+        }
+      },
+      "CityDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "JobDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string"
+          },
+          "fromSalary": {
+            "type": "number",
+            "format": "double"
+          },
+          "toSalary": {
+            "type": "number",
+            "format": "double"
+          },
+          "jobType": {
+            "type": "string",
+            "enum": [
+              "FULLTIME",
+              "PARTIME"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "openStatus": {
+            "type": "string",
+            "enum": [
+              "OPEN",
+              "CLOSED"
+            ]
+          },
+          "createAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "postedStatus": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "ACCEPT",
+              "REJECT"
+            ]
+          },
+          "jobImage": {
+            "type": "string"
+          },
+          "tagDTOList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TagDTO"
+            }
+          },
+          "cityDTOList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CityDTO"
+            }
+          }
+        }
+      },
+      "PageResponseJobDTO": {
+        "type": "object",
+        "properties": {
+          "pageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobDTO"
+            }
+          }
+        }
+      },
+      "ApiResponseJobDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/JobDTO"
+          }
+        }
+      },
+      "ApiResponseCompanyResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CompanyResponse"
+          }
+        }
+      },
+      "CompanyResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "img": {
+            "type": "string"
+          },
+          "workTime": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewDTO"
+            }
+          },
+          "numberOfCv": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "jobDTOList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobDTO"
+            }
+          }
+        }
+      },
+      "ReviewDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "creatAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "img": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseListCityDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CityDTO"
+            }
+          }
+        }
+      }
+    }
+  }
+}
