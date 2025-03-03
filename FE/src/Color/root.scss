@@ -1,0 +1,13 @@
+@import './style.scss';
+
+:root{
+  --background-color: #{$light-bg};
+  --text-color: #{$light-text};
+  --hover-color:#{$light-hover};
+  --home-bg: #{$light-home};
+  --nbackground-color: #{$nlight-bg};
+  --q-bg:#{$qlight-bg};
+  --pagi-text: #{$light-pagi};
+  --pagi--bg: #{$light-pagi-bg};
+  --hover--blog: #{$light-blog-hover};
+}

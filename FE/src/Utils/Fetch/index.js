@@ -1,0 +1,88 @@
+import axios from 'axios';
+
+export const fetchDataWithoutToken = async (url) => {
+  try {
+    const response = await axios.get(url);
+    return response.data; 
+  } catch (error) {
+    console.error('Lỗi khi lấy dữ liệu:', error);
+  }
+};
+
+export const checkLogin = async (url, data) => {
+  try {
+    const response = await axios.post(url, data);
+    return response.data; 
+  } catch (error) {
+    console.error('Lỗi khi lấy dữ liệu:', error);
+  }
+};
+
+export const checkValid = async (url, data) => {
+  try {
+    const response = await axios.post(url, data);
+    return response.data; 
+  } catch (error) {
+    console.error('Lỗi khi lấy dữ liệu:', error);
+  }
+};
+
+export const register = async (url, data) => {
+  try {
+    const response = await axios.post(url, data);
+    return response.data; 
+  } catch (error) {
+    console.error('Lỗi khi lấy dữ liệu:', error);
+  }
+};
+
+export const getDataWithToken = async (url, token) => {
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data; 
+  } catch (error) {
+    console.error('Lỗi khi lấy dữ liệu:', error);
+  }
+};
+
+export const handleUpload = async (url,file) => {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await axios.post(url, formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+
+  return res.data;
+};
+
+export const introspect = async (url, token)=>{
+  try {
+    const response = await axios.post(url, token);
+    return response.data; 
+  } catch (error) {
+    console.error('Lỗi khi lấy dữ liệu:', error);
+  }
+}
+export const sendNotification = async (url, token, data) =>{
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+    if (response.ok) return true;
+    return false;
+      
+  } catch (error) {
+    console.error('Có lỗi xảy ra:', error);
+    return null;
+  }
+}

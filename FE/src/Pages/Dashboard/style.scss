@@ -1,0 +1,75 @@
+@import '../../Color/root.scss';
+.dashboard{
+  min-height: 100vh;
+  margin-top: 90px;
+  padding: 20px;
+  width: 100%;
+  background-color: #e8eff9;
+  &__user{
+    display: flex;
+    margin-left: 60px;
+    align-items: center;
+    width: 400px;
+    &:hover{
+      cursor: pointer;
+      & h2{
+        text-decoration: underline;
+      }
+    }
+    & h2{
+      color: var(--text-color);
+    }
+    &__avt{
+      margin-right: 15px;
+      & .ant-badge-dot{
+        top: 43px!important;
+        right: 8px;
+        width: 7px;
+        height: 7px;
+        min-width: 7px;
+      }
+      &__bg{
+        border: 1px solid var(--text-color);
+      }
+    }
+  }
+  &__chart{
+    margin-top: 20px;
+    width: 100%;
+    & h3{
+      margin-left: 30px;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+    &__c{
+      padding: 10px;
+      border: 1px solid var(--text-color);
+      background-color: white;
+      height: 350px;
+      & canvas{
+        width: 100% !important;
+        height: auto;
+      }
+      & .ant-table-thead >tr > th{
+        background-color: var(--text-color)!important;
+        color: var(--background-color)!important;
+      }
+      &__liquid{
+        & canvas{
+          height: 300px!important;
+        }
+      }
+      &__c2{
+        height: 550px;
+      }
+    }
+    &__tb{
+      padding: 10px;
+      background-color: white;
+      height: 300px;
+      & canvas{
+        width: 100%!important;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../Color/root.scss';
+
+.custom-menu-item{
+  padding-left: 36px !important;
+}
+.menu-item-color{
+  color: var(--text-color)!important;
+  & .ant-menu-submenu-title{
+    color: var(--text-color)
+  }
+}
+.sidebar__icon{
+  color: rgb(105, 168, 187);
+}
+.justify-padding{
+  padding: 0px 24px!important;
+}

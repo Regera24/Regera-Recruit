@@ -1,0 +1,84 @@
+@import '../../Color/root.scss';
+.user{
+  width: 100%;
+  margin-top: 80px;
+  padding: 50px;
+  background-color: #e8eff9;
+  &__header{
+    margin-left: 70px;
+    display: flex;
+    &__image{
+      border: 3px solid var(--text-color);
+    }
+    &__name{
+      margin-top: 20px;
+      margin-left: 20px;
+      color: var(--text-color);
+    }
+  }
+  &__body{
+    margin: 20px 200px;
+    background-color: white;
+    border-radius: 20px;
+    padding:50px;
+    position: relative;
+    &__checkbox{
+      position: absolute;
+      top:40px;
+      right: 50px;
+    }
+    &__icon{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 30px;
+      padding:10px;
+      border: 1px solid;
+      border-radius: 10px;
+      margin-right: 90px;
+      margin-bottom: 20px;
+      transition: all ease 0.5s;
+      &:hover{
+        cursor: pointer;
+      }
+      &__fb:hover{
+        box-shadow: 0 0 20px 5px blue;
+      }
+      &__tw:hover{
+        box-shadow: 0 0 20px 5px #4db8ee;
+      }
+      &__ins:hover{
+        box-shadow: 0 0 20px 5px #f77084;
+      }
+      &__gh:hover{
+        box-shadow: 0 0 20px 5px #551a8b;
+      }
+      &__gg:hover{
+        box-shadow: 0 0 20px 5px #f53e2d;
+      }
+      &__lk:hover{
+        box-shadow: 0 0 20px 5px #2180ff;
+      }
+    }
+    &__bt{
+        border-radius: 20px;
+        color: var(--background-color);
+        background-color: var(--text-color);
+        font-weight: 600;
+        border-color: transparent;
+        transition: all ease 0.7s;
+        &:hover{
+          background-color: var(--background-color)!important;
+          border-color: var(--text-color)!important;
+          color: var(--text-color)!important;
+        }
+    }
+  }
+}
+.spin{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

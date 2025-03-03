@@ -1,0 +1,13 @@
+@import '../../Color/root.scss';
+.sider{
+ position: sticky;
+ top:88px;
+ background-color: var(--background-color);
+ height: 100%;
+ z-index: 1000;
+ transition: all .2s ease;
+ -webkit-transition: all .2s ease;
+}
+.outer{
+  background-color: var(--background-color);
+}
