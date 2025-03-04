@@ -4,141 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d6cf798-d1cd-46fc-aae5-6ba80d9f77aa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/RegeraRecruitApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/config/CloudinaryConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/config/ModelMapperConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/config/OpenApiConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/config/PasswordEncodeConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/config/RedisConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/config/SchedulerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/config/WebSocketConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/controller/admin/AdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/controller/authentication/AuthenticationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/controller/candidate/CandidateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/controller/company/CompanyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/controller/notification/NotificationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/controller/public_api/PublicController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/converter/AccountConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/converter/ApplyJobConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/converter/CandidateConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/converter/CompanyConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/converter/CvConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/converter/JobConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/converter/NotificationConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/converter/OtherConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/converter/ReviewConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/ApplyJobDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/CandidateDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/CityDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/CvDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/JobDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/NotificationDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/ReviewDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/TagDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/SendNotificationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/authentication/AccountCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/authentication/AuthenticationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/authentication/ChangePasswordRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/authentication/EmailAndPhoneCheckRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/authentication/IntrospectRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/authentication/LogoutRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/authentication/OTPCheckRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/candidate/ApplyRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/candidate/CandidateCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/candidate/CandidateUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/company/CompanyCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/company/CompanyUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/cv/CvCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/cv/CvUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/job/JobCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/request/job/JobUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/response/ApiResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/response/CompanyResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/response/PageResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/response/authentication/AccountCreationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/response/authentication/AuthenticationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/response/authentication/EmailAndPhoneCheckResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/response/authentication/IntrospectResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/dto/response/authentication/SendOTPResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/AbstractEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/Account.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/ApplyJob.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/Candidate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/City.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/Company.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/Cv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/Job.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/Notification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/Review.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/SavedJob.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/entity/Tag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/enums/ApplicationStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/enums/JobType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/enums/NotificationType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/enums/OpenStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/enums/PostedStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/enums/RoleEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/enums/TokenType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/exception/AppException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/exception/ErrorCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/AccountRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/ApplyJobRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/CandidateRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/CityRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/CompanyRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/CvRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/JobRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/NotificationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/SavedJobRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/SearchRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/TagRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/criteria/JobSearchCriteriaQueryConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/criteria/SearchCriteria.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/repository/impl/SearchRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/ApplyJobService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/AuthenticationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/BaseRedisService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/CandidateService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/CityService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/CompanyService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/CvService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/JobService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/NotificationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/RedisTokenService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/TagService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/ApplyJobServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/AuthenticationServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/BaseRedisServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/CandidateServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/CityServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/CompanyServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/CvServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/JobServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/NotificationServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/RedisTokenServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/service/impl/TagServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/utils/CloudinaryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/utils/Jwt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/utils/Mail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/utils/ObjectUpdater.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/utils/custom_constraint/PhoneNumberConstraint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group5/regerarecruit/utils/custom_validator/PhoneNumberValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/group5/regerarecruit/RegeraRecruitApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="3d6cf798-d1cd-46fc-aae5-6ba80d9f77aa" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,28 +45,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.RegeraRecruit [com.diffplug.spotless:spotless-maven-plugin:2.44.2:apply].executor": "Run",
-    "Maven.RegeraRecruit [com.diffplug.spotless:spotless-maven-plugin:2.44.2:check].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.RegeraRecruitApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/h/Documents/RegeraRecruit/BE",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.RegeraRecruit [com.diffplug.spotless:spotless-maven-plugin:2.44.2:apply].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.RegeraRecruit [com.diffplug.spotless:spotless-maven-plugin:2.44.2:check].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.RegeraRecruitApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/h/Documents/RegeraRecruit/BE&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\h\Documents\RegeraRecruit\RegeraRecruit\src\main\java\org\group5\regerarecruit\Entity" />
@@ -288,6 +154,7 @@
       <workItem from="1740968484055" duration="2649000" />
       <workItem from="1740990064223" duration="5818000" />
       <workItem from="1741007699486" duration="2763000" />
+      <workItem from="1741098769376" duration="13000" />
     </task>
     <servers />
   </component>
