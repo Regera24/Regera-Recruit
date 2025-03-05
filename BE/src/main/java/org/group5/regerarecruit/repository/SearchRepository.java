@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SearchRepository {
     public PageResponse<JobDTO> getAllJobWithSortAndSearchByCriteria(
-            int offset, int pageSize, String keyword ,String sort, Long companyId, String... search);
+            int offset, int pageSize, String keyword, String sort, Long companyId, String... search);
 }

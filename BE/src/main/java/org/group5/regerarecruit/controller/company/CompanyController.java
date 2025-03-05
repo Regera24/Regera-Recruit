@@ -53,7 +53,7 @@ public class CompanyController {
             @RequestParam(required = false) String sortBy,
             @RequestParam(required = false) String... searchs) {
         PageResponse<JobDTO> response =
-                jobService.getAllJobsWithSortAndSearchByCriteriaAndCompany(pageNo, pageSize, keyword ,sortBy, searchs);
+                jobService.getAllJobsWithSortAndSearchByCriteriaAndCompany(pageNo, pageSize, keyword, sortBy, searchs);
         return ApiResponse.<PageResponse<JobDTO>>builder()
                 .data(response)
                 .code(200)

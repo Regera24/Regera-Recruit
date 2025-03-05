@@ -14,7 +14,6 @@ import org.group5.regerarecruit.dto.response.ApiResponse;
 import org.group5.regerarecruit.service.ApplyJobService;
 import org.group5.regerarecruit.service.CandidateService;
 import org.group5.regerarecruit.service.CvService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -83,7 +82,7 @@ public class CandidateController {
 
     @Operation(summary = "Update Cv", description = "Update cv with CvUpdateRequest")
     @PatchMapping(value = "/cv/{id}")
-    public ApiResponse<Void> updateCv(@PathVariable Long id,@RequestBody @Valid CvUpdateRequest request) {
+    public ApiResponse<Void> updateCv(@PathVariable Long id, @RequestBody @Valid CvUpdateRequest request) {
         cvService.updateCv(request, id);
         return ApiResponse.<Void>builder()
                 .message("Update cv successfully")

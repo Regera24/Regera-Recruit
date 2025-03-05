@@ -5,16 +5,14 @@ import java.util.List;
 
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 @Table(name = "Account")
 public class Account extends AbstractEntity {
     @Column(name = "username", unique = true, nullable = false)
@@ -23,7 +21,7 @@ public class Account extends AbstractEntity {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "phoneNumber", unique = true, nullable = false)
+    @Column(name = "phoneNumber", unique = true)
     private String phoneNumber;
 
     @Column(name = "OTP")

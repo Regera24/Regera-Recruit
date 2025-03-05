@@ -22,8 +22,8 @@ public class RedisTokenServiceImpl extends BaseRedisServiceImpl implements Redis
         this.set(key, value, expire, timeUnit);
     }
 
-    private String getKeyFrom(int pageNo, int pageSize, String sortBy, String... searchs){
+    private String getKeyFrom(int pageNo, int pageSize, String sortBy, String... searchs) {
         String searchKey = String.join("-", searchs);
-        return searchKey+"dfd";
+        return searchKey + "dfd";
     }
 }

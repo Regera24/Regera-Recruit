@@ -93,9 +93,7 @@ public class AuthenticationController {
                 .build();
     }
 
-    @Operation(
-            summary = "Check Email and Phone",
-            description = "Check if email and phone number is valid for register ")
+    @Operation(summary = "Check Email and Phone", description = "Check if email and phone number is valid for register ")
     @PostMapping(value = "check-email-phone")
     public ApiResponse<EmailAndPhoneCheckResponse> checkEmailPhone(
             @RequestBody @Valid EmailAndPhoneCheckRequest request) {
@@ -139,4 +137,24 @@ public class AuthenticationController {
                 .build();
     }
 
+    @Operation(summary = "Get outbound authenticate", description = "Get outbound authenticate with login with google")
+    @PostMapping(value = "/outbound/authenticate")
+    ApiResponse<AuthenticationResponse> authenticateOutbound(@RequestParam String code) {
+        AuthenticationResponse authenticated = authenticationService.outboundAuthenticate(code);
+        return ApiResponse.<AuthenticationResponse>builder()
+                .code((authenticated.isSuccess() ? 200 : 401))
+                .data(authenticated)
+                .build();
+    }
+
+    @Operation(summary = "Add info after outbound authenticate", description = "Add account info after outbound authenticate with login with google")
+    @PostMapping(value = "/outbound/add-info")
+    ApiResponse<AuthenticationResponse> addAccountInfo(@RequestBody AddUserInfoRequest request) {
+        AuthenticationResponse response = authenticationService.addAccountInfo(request);
+        return ApiResponse.<AuthenticationResponse>builder()
+                .data(response)
+                .message("Add info successfully")
+                .code(200)
+                .build();
+    }
 }

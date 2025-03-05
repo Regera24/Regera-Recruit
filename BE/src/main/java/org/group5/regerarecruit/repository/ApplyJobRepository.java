@@ -12,15 +12,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ApplyJobRepository extends JpaRepository<ApplyJob, Long> {
-    @Query(
-            value =
-                    "SELECT a.id AS id, a.candidateTitle AS candidateTitle, a.jobTitle AS jobTitle, a.jobImage AS jobImage "
+    @Query(value = "SELECT a.id AS id, a.candidateTitle AS candidateTitle, a.jobTitle AS jobTitle, a.jobImage AS jobImage "
                             + "FROM ApplyJob a WHERE a.candidateId =:id")
     List<ApplyJobDTO> getListApplyJobByCandidateId(@Param("id") Long id);
 
-    @Query(
-            value =
-                    "SELECT a.id AS id, a.candidateTitle AS candidateTitle, a.jobTitle AS jobTitle, a.jobImage AS jobImage "
+    @Query(value = "SELECT a.id AS id, a.candidateTitle AS candidateTitle, a.jobTitle AS jobTitle, a.jobImage AS jobImage "
                             + "FROM ApplyJob a WHERE a.jobId =:id")
     List<ApplyJobDTO> getListApplyJobByJobId(@Param("id") Long id);
 

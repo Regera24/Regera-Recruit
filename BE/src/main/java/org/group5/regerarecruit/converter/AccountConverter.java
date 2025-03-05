@@ -1,6 +1,7 @@
 package org.group5.regerarecruit.converter;
 
 import org.group5.regerarecruit.dto.request.authentication.AccountCreationRequest;
+import org.group5.regerarecruit.dto.request.authentication.AddUserInfoRequest;
 import org.group5.regerarecruit.entity.Account;
 import org.group5.regerarecruit.entity.Role;
 import org.group5.regerarecruit.exception.AppException;
@@ -18,6 +19,15 @@ public class AccountConverter {
     private final RoleRepository roleRepository;
 
     public Account toAccountEntity(AccountCreationRequest request) {
+        Account acc = modelMapper.map(request, Account.class);
+        Role role =
+                roleRepository.findByCode(request.getRole()).orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND));
+        acc.setRole(role);
+        acc.setIsActive(true);
+        return acc;
+    }
+
+    public Account toAccountEntity(AddUserInfoRequest request) {
         Account acc = modelMapper.map(request, Account.class);
         Role role =
                 roleRepository.findByCode(request.getRole()).orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND));

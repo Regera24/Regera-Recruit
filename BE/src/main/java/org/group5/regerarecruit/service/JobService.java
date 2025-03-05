@@ -13,7 +13,7 @@ public interface JobService {
     public List<JobDTO> getAllJobsActive(int pageNo, int pageSize, String... sorts);
 
     public PageResponse<JobDTO> getAllJobsWithSortAndSearchByCriteria(
-            int offset, int pageSize, String keyword ,String sort, String... searchs);
+            int offset, int pageSize, String keyword, String sort, String... searchs);
 
     public void addJob(JobCreationRequest request);
 
@@ -22,5 +22,5 @@ public interface JobService {
     public JobDTO getJobById(Long id);
 
     public PageResponse<JobDTO> getAllJobsWithSortAndSearchByCriteriaAndCompany(
-            int offset, int pageSize, String keyword ,String sort, String... searchs);
+            int offset, int pageSize, String keyword, String sort, String... searchs);
 }

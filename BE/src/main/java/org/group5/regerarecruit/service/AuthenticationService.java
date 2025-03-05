@@ -17,6 +17,8 @@ public interface AuthenticationService {
 
     public AccountCreationResponse createAccount(AccountCreationRequest request);
 
+    public AuthenticationResponse addAccountInfo(AddUserInfoRequest request);
+
     public void logout(LogoutRequest logoutRequest, HttpServletResponse response);
 
     public IntrospectResponse introspect(IntrospectRequest request) throws JOSEException, ParseException;
@@ -32,4 +34,6 @@ public interface AuthenticationService {
     public void changePassword(ChangePasswordRequest request);
 
     public AuthenticationResponse refreshToken(String refreshToken);
+
+    public AuthenticationResponse outboundAuthenticate(String code);
 }

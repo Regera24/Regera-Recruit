@@ -47,7 +47,9 @@ public class CvServiceImpl implements CvService {
     public void createCv(CvCreationRequest request) {
         Cv cv = cvConverter.toCvEntity(request);
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        Account acc = accountRepository.findByUsername(username).orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
+        Account acc = accountRepository
+                .findByUsername(username)
+                .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
         cv.setCandidate(acc.getCandidate());
         cvRepository.save(cv);
     }

@@ -66,8 +66,8 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public PageResponse<JobDTO> getAllJobsWithSortAndSearchByCriteria(
-            int offset, int pageSize, String keyword ,String sort, String... searchs) {
-        return searchRepository.getAllJobWithSortAndSearchByCriteria(offset, pageSize, keyword ,sort, null, searchs);
+            int offset, int pageSize, String keyword, String sort, String... searchs) {
+        return searchRepository.getAllJobWithSortAndSearchByCriteria(offset, pageSize, keyword, sort, null, searchs);
     }
 
     @Override
@@ -78,7 +78,8 @@ public class JobServiceImpl implements JobService {
                 .findByUsername(username)
                 .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
         Long companyId = acc.getCompany().getId();
-        return searchRepository.getAllJobWithSortAndSearchByCriteria(offset, pageSize, keyword ,sort, companyId, searchs);
+        return searchRepository.getAllJobWithSortAndSearchByCriteria(
+                offset, pageSize, keyword, sort, companyId, searchs);
     }
 
     @Override

@@ -32,7 +32,7 @@ public class SearchRepositoryImpl implements SearchRepository {
 
     @Override
     public PageResponse<JobDTO> getAllJobWithSortAndSearchByCriteria(
-            int offset, int pageSize, String keyword ,String sort, Long companyId, String... search) {
+            int offset, int pageSize, String keyword, String sort, Long companyId, String... search) {
         List<SearchCriteria> criteriaList = new ArrayList<>();
 
         if (search != null) {
@@ -47,7 +47,7 @@ public class SearchRepositoryImpl implements SearchRepository {
             }
         }
 
-        List<Job> jobList = getJobs(offset, pageSize, keyword ,sort, companyId, criteriaList);
+        List<Job> jobList = getJobs(offset, pageSize, keyword, sort, companyId, criteriaList);
 
         List<JobDTO> jobDTOList = jobList.stream().map(jobConverter::toDTO).toList();
 
@@ -63,7 +63,12 @@ public class SearchRepositoryImpl implements SearchRepository {
     }
 
     private List<Job> getJobs(
-            int offset, int pageSize, String keyword ,String sortBy, Long companyId, List<SearchCriteria> criteriaList) {
+            int offset,
+            int pageSize,
+            String keyword,
+            String sortBy,
+            Long companyId,
+            List<SearchCriteria> criteriaList) {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery<Job> criteriaQuery = criteriaBuilder.createQuery(Job.class);
         Root<Job> root = criteriaQuery.from(Job.class);
@@ -79,7 +84,7 @@ public class SearchRepositoryImpl implements SearchRepository {
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(companyJoin.get("id"), companyId));
         }
 
-        if(StringUtils.hasLength(keyword)){
+        if (StringUtils.hasLength(keyword)) {
             Predicate titlePredicate = criteriaBuilder.like(root.get("title"), "%" + keyword + "%");
             Predicate descriptionPredicate = criteriaBuilder.like(root.get("description"), "%" + keyword + "%");
             predicate = criteriaBuilder.and(predicate, criteriaBuilder.or(titlePredicate, descriptionPredicate));

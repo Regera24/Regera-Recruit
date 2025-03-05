@@ -48,7 +48,9 @@ public class Jwt {
                 .subject(account.getUsername())
                 .issuer("regerarecruit.com")
                 .issueTime(new Date())
-                .claim("scope", account.getRole().getCode())
+                .claim(
+                        "scope",
+                        account.getRole().getCode() != null ? account.getRole().getCode() : "NEW_USER")
                 .expirationTime(new Date(
                         Instant.now().plus(expiredTime, ChronoUnit.SECONDS).toEpochMilli()))
                 .jwtID(UUID.randomUUID().toString())

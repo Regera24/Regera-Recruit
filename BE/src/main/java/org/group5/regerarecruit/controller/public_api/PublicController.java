@@ -3,7 +3,6 @@ package org.group5.regerarecruit.controller.public_api;
 import java.io.IOException;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.group5.regerarecruit.dto.CityDTO;
 import org.group5.regerarecruit.dto.JobDTO;
 import org.group5.regerarecruit.dto.TagDTO;
@@ -13,10 +12,12 @@ import org.group5.regerarecruit.dto.response.PageResponse;
 import org.group5.regerarecruit.service.*;
 import org.group5.regerarecruit.utils.CloudinaryService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/public")
@@ -36,16 +37,18 @@ public class PublicController {
             @RequestParam(defaultValue = "10", required = false) Integer pageSize,
             @RequestParam(required = false) String keyword,
             @RequestParam(required = false) String sortBy,
-            @RequestParam(required = false) String... searchs) throws JsonProcessingException {
+            @RequestParam(required = false) String... searchs)
+            throws JsonProcessingException {
 
         ApiResponse<PageResponse<JobDTO>> apiResponse = new ApiResponse<>();
-        PageResponse<JobDTO> redisResponse = jobRedisService.findByJobSearchId(pageNo, pageSize, keyword, sortBy, searchs);
+        PageResponse<JobDTO> redisResponse =
+                jobRedisService.findByJobSearchId(pageNo, pageSize, keyword, sortBy, searchs);
 
-        if(redisResponse!=null){
+        if (redisResponse != null) {
             apiResponse.setData(redisResponse);
-        }else{
+        } else {
             PageResponse<JobDTO> response =
-                    jobService.getAllJobsWithSortAndSearchByCriteria(pageNo, pageSize, keyword ,sortBy, searchs);
+                    jobService.getAllJobsWithSortAndSearchByCriteria(pageNo, pageSize, keyword, sortBy, searchs);
             jobRedisService.setJobSearchResultToRedis(pageNo, pageSize, keyword, sortBy, searchs, response);
             apiResponse.setData(response);
         }
@@ -102,8 +105,7 @@ public class PublicController {
 
     @Operation(summary = "Upload image", description = "Upload image to Cloudinary and get back url")
     @PostMapping(value = "/image")
-    public ApiResponse<String> uploadFile(
-            @RequestPart("file") MultipartFile file) throws IOException {
+    public ApiResponse<String> uploadFile(@RequestPart("file") MultipartFile file) throws IOException {
         String url = cloudinaryService.uploadFile(file);
         return ApiResponse.<String>builder()
                 .code(200)
