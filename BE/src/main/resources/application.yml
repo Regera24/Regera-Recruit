@@ -38,3 +38,10 @@ open:
     version: v1.0.0
     serverUrl: http://localhost:9999
     serverName: Server Test
+
+regera:
+  outbound:
+    client_secret: ${CLIENT_SECRET}
+    client_id: ${CLIENT_ID}
+    redirect_uri: http://localhost:3000/authenticate
+    grant_type: authorization_code
