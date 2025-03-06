@@ -15,6 +15,7 @@ import org.group5.regerarecruit.dto.response.PageResponse;
 import org.group5.regerarecruit.entity.Company;
 import org.group5.regerarecruit.entity.Job;
 import org.group5.regerarecruit.repository.SearchRepository;
+import org.group5.regerarecruit.repository.criteria.CriteriaConverter;
 import org.group5.regerarecruit.repository.criteria.JobSearchCriteriaQueryConsumer;
 import org.group5.regerarecruit.repository.criteria.SearchCriteria;
 import org.springframework.stereotype.Repository;
@@ -29,23 +30,12 @@ public class SearchRepositoryImpl implements SearchRepository {
     private EntityManager em;
 
     private final JobConverter jobConverter;
+    private final CriteriaConverter criteriaConverter;
 
     @Override
     public PageResponse<JobDTO> getAllJobWithSortAndSearchByCriteria(
             int offset, int pageSize, String keyword, String sort, Long companyId, String... search) {
-        List<SearchCriteria> criteriaList = new ArrayList<>();
-
-        if (search != null) {
-            for (String s : search) {
-                if (StringUtils.hasLength(s)) {
-                    Pattern pattern = Pattern.compile("(\\w+?)([:><])(.*)");
-                    Matcher matcher = pattern.matcher(s);
-                    if (matcher.find()) {
-                        criteriaList.add(new SearchCriteria(matcher.group(1), matcher.group(2), matcher.group(3)));
-                    }
-                }
-            }
-        }
+        List<SearchCriteria> criteriaList = criteriaConverter.toCriteriaList(search);
 
         List<Job> jobList = getJobs(offset, pageSize, keyword, sort, companyId, criteriaList);
 

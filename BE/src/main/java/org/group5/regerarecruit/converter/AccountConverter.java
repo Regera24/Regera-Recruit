@@ -1,5 +1,6 @@
 package org.group5.regerarecruit.converter;
 
+import org.group5.regerarecruit.dto.AccountDTO;
 import org.group5.regerarecruit.dto.request.authentication.AccountCreationRequest;
 import org.group5.regerarecruit.dto.request.authentication.AddUserInfoRequest;
 import org.group5.regerarecruit.entity.Account;
@@ -34,5 +35,9 @@ public class AccountConverter {
         acc.setRole(role);
         acc.setIsActive(true);
         return acc;
+    }
+
+    public AccountDTO toDto(Account account){
+        return modelMapper.map(account, AccountDTO.class);
     }
 }
