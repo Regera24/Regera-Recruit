@@ -7,4 +7,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface AccountService {
     public PageResponse<AccountDTO> getAllAccount(int offset, int pageSize, String sort, String... searchs);
+    public void changeAccountStatus(String username);
 }
