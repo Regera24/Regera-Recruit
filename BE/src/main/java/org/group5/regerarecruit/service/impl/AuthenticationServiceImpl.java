@@ -85,7 +85,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
 
         AuthenticationResponse authenticationResponse = new AuthenticationResponse();
-        if (account == null || !account.getPassword().equals(authenticationRequest.getPassword())) {
+        if (account == null || !account.getPassword().equals(authenticationRequest.getPassword()) || Boolean.TRUE.equals(!account.getIsActive())) {
             authenticationResponse.setSuccess(false);
         } else {
             String token = jwt.generateToken(account, TokenType.ACCESS_TOKEN);
